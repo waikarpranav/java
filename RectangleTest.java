@@ -1,36 +1,30 @@
-import java.util.Scanner;
-
+import Scanner;
 class Rectangle {
-    double length, width, area;
-    String colour;
-
-    Rectangle(double l, double w, String c) {
-        length = l;
-        width = w;
-        colour = c;
-        area = l * w;
-    }
+ double length, width, area;
+ String color;
+ void getDetails() {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter length: ");
+ length = sc.nextDouble();
+ System.out.print("Enter width: ");
+ width = sc.nextDouble();
+ System.out.print("Enter color: ");
+ color = sc.next();
+ area = length * width;
+ System.out.println("Area = " + area);
+ }
 }
-
-public class RectangleTest {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        // Input for first rectangle
-        System.out.println("Enter length, width, colour of first rectangle:");
-        Rectangle r1 = new Rectangle(sc.nextDouble(), sc.nextDouble(), sc.next());
-
-        // Input for second rectangle
-        System.out.println("Enter length, width, colour of second rectangle:");
-        Rectangle r2 = new Rectangle(sc.nextDouble(), sc.nextDouble(), sc.next());
-
-        // Compare area and colour
-        if (r1.area == r2.area && r1.colour.equalsIgnoreCase(r2.colour)) {
-            System.out.println("Matching Rectangles");
-        } else {
-            System.out.println("Non-matching Rectangles");
-        }
-
-        sc.close();
-    }
+public class RectangleMain {
+ public static void main(String[] args) {
+ Rectangle r1 = new Rectangle();
+ Rectangle r2 = new Rectangle();
+ System.out.println("Enter details of first rectangle:");
+ r1.getDetails();
+ System.out.println("\nEnter details of second rectangle:");
+ r2.getDetails();
+ if (r1.area == r2.area && r1.color.equalsIgnoreCase(r2.color))
+ System.out.println("\nMatching Rectangles");
+ else
+ System.out.println("\nNon-Matching Rectangles");
+ }
 }
